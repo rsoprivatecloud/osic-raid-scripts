@@ -8,4 +8,4 @@ SERIAL=$(/usr/sbin/hpssacli ctrl all show | grep sn: | cut -d: -f2 | sed 's@ @@g
 /sbin/dmsetup remove_all --force
 /sbin/dmsetup status
 # Create OS RAID10 - all drives (placed at /dev/sda for preseed/kickstart)
-/usr/sbin/hpssacli ctrl sn=${SERIAL} create type=ld raid=1+0 ss=256 drives=au size=max ca=enable
+/usr/sbin/hpssacli ctrl sn=${SERIAL} create type=ld raid=1+0 ss=256 drives=au size=max ca=enable forced
